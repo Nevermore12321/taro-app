@@ -32,10 +32,9 @@ class Index extends Component {
   }
 
   render () {
-    const a = "test"
     const { counterStore: { counter } } = this.props.store
     return (
-      <View className='index'>
+      <View className="index">
         <Button onClick={this.increment}>+</Button>
         <Button onClick={this.decrement}>-</Button>
         <Button onClick={this.incrementAsync}>Add Async</Button>
