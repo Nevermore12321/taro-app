@@ -71,8 +71,10 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "4.3.8",
     "lint-staged": "8.2.1",
+    "prop-types": "^15.8.1",
     "react-refresh": "^0.11.0",
     "stylelint": "9.3.0",
+    "taro-ui": "^3.1.0-beta.4",
     "webpack": "5.69.0"
   },
   "husky": {

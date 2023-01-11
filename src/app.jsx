@@ -1,29 +1,34 @@
-import { Component } from 'react'
-import { Provider } from 'mobx-react'
+import {Component} from "react"
+import {Provider} from "mobx-react"
+import Taro from "@tarojs/taro";
 
-import counterStore from './store/counter'
+import counterStore from "./store/counter"
 
-import './app.scss'
+import "./app.scss"
+import "./assets/font-awesome/css/font-awesome.css"
 
 const store = {
-  counterStore
+    counterStore
 }
 
 class App extends Component {
-  componentDidMount () {}
+    componentDidMount() {
+    }
 
-  componentDidShow () {}
+    componentDidShow() {
+    }
 
-  componentDidHide () {}
+    componentDidHide() {
+    }
 
-  // this.props.children 就是要渲染的页面
-  render () {
-    return (
-      <Provider store={store}>
-        {this.props.children}
-      </Provider>
-    )
-  }
+    // this.props.children 就是要渲染的页面
+    render() {
+        return (
+            <Provider store={store}>
+                {this.props.children}
+            </Provider>
+        )
+    }
 }
 
 export default App
