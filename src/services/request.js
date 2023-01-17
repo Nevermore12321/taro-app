@@ -14,50 +14,60 @@ import interceptors from "./interceptors";
 
 interceptors.forEach(interceptorItem => Taro.addInterceptor(interceptorItem))
 
+/**
+ *
+ * @param params: {url, data, method, header, contentType ...}
+ * @returns {Promise<unknown>}
+ */
+
+export const request = (params) => {
+    const {
+        url = "",
+        method = "GET",
+        header = {},
+        ...rest // 剩余参数
+    } = params
+
+    const baseURL = getBaseUrl(url)
+
+    const options = {
+        url: baseURL + url,
+        data: params.data,
+        method: method,
+        header: {
+            "content-type": params.contentType || "application/json",
+            'Authorization': Taro.getStorageSync('Authorization'),
+            ...header
+        },
+        ...rest
+    }
+    return Taro.request(options)
+}
+
+
+
 const Requests = {
-    request: (params) => {
-        const {
-            data,
-            url = "",
-            method = "GET",
-            header = {},
-            ...rest // 剩余参数
-        } = params
-
-        const baseURL = getBaseUrl(url)
-
-        const options = {
-            url: baseURL + url,
-            data: data,
-            method: method,
-            header: {
-                "content-type": params.contentType || "application/json",
-                'Authorization': Taro.getStorageSync('Authorization'),
-                ...header
-            },
-            ...rest
-        }
-        return Taro.request(options)
-    },
-
     get: (url, data = "") => {
         let params = { url, data };
-        return this.request(params);
+        return request(params);
     },
 
     post: (url, data, contentType) => {
-        let params = { url, data, contentType };
-        return this.request(params, "POST");
+        let method = "POST"
+        let params = { url, data, contentType, method};
+        return request(params);
     },
 
     put: (url, data = "") => {
-        let params = { url, data };
-        return this.request(params, "PUT");
+        let method = "PUT"
+        let params = { url, data, method };
+        return request(params);
     },
 
     delete: (url, data = "") => {
-        let params = { url, data };
-        return this.request(params, "DELETE");
+        let method = "DELETE"
+        let params = { url, data, method };
+        return request(params);
     },
 }
 export default Requests

@@ -14,14 +14,14 @@ const getBaseUrl = (url) => {
         if (url.includes("/api/")) {
             BASE_URL = ""
         } else {
-            BASE_URL = "/api/"
+            BASE_URL = ""
         }
     } else {
         // 生产环境
         if (url.includes("/api/")) {
             BASE_URL = ""
         } else {
-            BASE_URL = "/api/"
+            BASE_URL = ""
         }
     }
     return BASE_URL

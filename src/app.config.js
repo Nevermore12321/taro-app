@@ -2,7 +2,8 @@
 export default defineAppConfig({
     pages: [
         'pages/index/index',
-        'pages/memo/index'
+        'pages/memo/index',
+        'pages/login/index'
     ],
     window: {
         backgroundTextStyle: 'dark',

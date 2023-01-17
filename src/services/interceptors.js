@@ -16,12 +16,12 @@ const customLogInterceptor = (chain) => {
     const requestParams = chain.requestParams
     const {method, data, url} = requestParams
 
-    console.log(`http ${method || 'GET'} --> ${url} data: `, data)
-    log("INFO", "HTTP REQ", method, `${url} data: ${data}`)
+    log("INFO", "HTTP REQ", `${method} ${url}`, data)
 
     return chain.proceed(requestParams)
         .then(res => {
-            log("INFO", "HTTP RES", method, `${url} result: ${res}`)
+            console.log(res)
+            log("INFO", "HTTP RES", `${method} ${url}`, res)
             return res
         })
 }
