@@ -27,7 +27,8 @@ function Segment({tabList, initTab, onTabChange, className, showAction}) {
                 showAction ?
                     <View className="action-view" onClick={() => onActionConfig()}>
                         <AtIcon value="filter" size="22" color="#333" />
-                        <AtIcon prefixClass="fa" value="bug" color="#733254" />
+                        <AtIcon prefixClass="fa" value="bug" color="#333" />
+                        <AtIcon prefixClass="fa" value="flask" color="#333" />
                     </View>
                     :
                     <View className="action-view" />

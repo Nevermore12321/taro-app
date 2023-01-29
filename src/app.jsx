@@ -5,7 +5,7 @@ import Taro from "@tarojs/taro";
 import counterStore from "./store/counter"
 
 import "./app.scss"
-import "./assets/font-awesome/css/font-awesome.css"
+import "@/assets/font-awesome/css/font-awesome.min.css"
 
 const store = {
     counterStore
